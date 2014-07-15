@@ -45,12 +45,16 @@ LIB_PRGOPT := -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic
 
 PROGRAMS := \
     name_count \
+    name_unicode_geo
 
 .PHONY: all clean
 
 all: $(PROGRAMS)
 
 name_count: name_count.cpp
+	$(CXX) $(CXXFLAGS) $(CXXFLAGS_WARNINGS) $(CXXFLAGS_LIBXML2) -o $@ $< $(LDFLAGS) $(LIB_EXPAT) $(LIB_PBF) $(LIB_XML2)
+
+name_unicode_geo: name_unicode_geo.cpp
 	$(CXX) $(CXXFLAGS) $(CXXFLAGS_WARNINGS) $(CXXFLAGS_LIBXML2) -o $@ $< $(LDFLAGS) $(LIB_EXPAT) $(LIB_PBF) $(LIB_XML2)
 
 clean:
