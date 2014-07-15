@@ -50,7 +50,6 @@ class MyCountHandler : public osmium::handler::Handler<MyCountHandler> {
 
 int main(int argc, char* argv[]) {
     std::string input_filename;
-    std::string output_filename("ogr_out");
     int remaining_args = argc - optind;
 
     if (remaining_args == 1) {
